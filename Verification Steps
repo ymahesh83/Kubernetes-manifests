@@ -1,0 +1,18 @@
+# Verification Steps
+# Launch the Cluster: Deploy the manifests using kubectl apply -f <filename>.yaml.
+
+# Check Pod Readiness:
+
+# Run kubectl get pods -n default to check the status of the Pods.
+# Check the logs and events to ensure that the backend Pod is reporting ready status.
+# Verify the ReadinessProbe:
+
+# kubectl exec -it <backend-pod-name> -- curl db1:6379 should succeed if db1 is reachable.
+# Confirm the NetworkPolicy:
+
+# Test if the backend Pod can access db1 on port 6379 and db2 on port 5432.
+# You can use a temporary busybox Pod to test network connectivity.
+# Verify the Secret:
+
+# Execute kubectl exec -it <db2-pod-name> -- printenv | grep DB2_ to check that the environment variables are correctly populated.
+# These steps will help ensure that the Kubernetes configuration meets the specified requirements and that the system is functioning as expected.
