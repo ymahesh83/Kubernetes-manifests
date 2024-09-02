@@ -1,3 +1,4 @@
+#The `backend` Deployment will be configured to prevent modifications to the local filesystem and ensure that `/tmp` is writable. We can achieve this by using an `emptyDir` volume for `/tmp` and setting the security context to make the filesystem read-only.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
